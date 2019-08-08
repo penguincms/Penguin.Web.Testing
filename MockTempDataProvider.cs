@@ -1,0 +1,39 @@
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace Penguin.Web.Testing
+{
+    public class MockTempDataProvider : ITempDataProvider
+    {
+        #region Properties
+
+        protected Dictionary<string, object> TempData { get; set; }
+
+        #endregion Properties
+
+        #region Constructors
+
+        public MockTempDataProvider()
+        {
+            TempData = new Dictionary<string, object>();
+        }
+
+        #endregion Constructors
+
+        #region Methods
+
+        public IDictionary<string, object> LoadTempData(HttpContext context)
+        {
+            return TempData;
+        }
+
+        public void SaveTempData(HttpContext context, IDictionary<string, object> values)
+        {
+        }
+
+        #endregion Methods
+    }
+}

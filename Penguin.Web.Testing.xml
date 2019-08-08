@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Penguin.Web.Testing</name>
+    </assembly>
+    <members>
+        <member name="T:Penguin.Web.Testing.MockHostingEnvironment">
+            <summary>
+            A Mock object intended to spoof server environment variables for use in unit testing
+            </summary>
+        </member>
+        <member name="P:Penguin.Web.Testing.MockHostingEnvironment.ApplicationName">
+            <summary>
+            Unused
+            </summary>
+        </member>
+        <member name="P:Penguin.Web.Testing.MockHostingEnvironment.ContentRootFileProvider">
+            <summary>
+            Unused
+            </summary>
+        </member>
+        <member name="P:Penguin.Web.Testing.MockHostingEnvironment.ContentRootPath">
+            <summary>
+            Returns the application (execution) root path
+            </summary>
+        </member>
+        <member name="P:Penguin.Web.Testing.MockHostingEnvironment.EnvironmentName">
+            <summary>
+            Unused
+            </summary>
+        </member>
+        <member name="P:Penguin.Web.Testing.MockHostingEnvironment.WebRootFileProvider">
+            <summary>
+            Unused
+            </summary>
+        </member>
+        <member name="P:Penguin.Web.Testing.MockHostingEnvironment.WebRootPath">
+            <summary>
+            Returns the WWWRoot for the application
+            </summary>
+        </member>
+        <member name="T:Penguin.Web.Testing.MockHttpSession">
+            <summary>
+            A mock HTTP session with the intent of mimicking session functionality in unit testing
+            </summary>
+        </member>
+        <member name="P:Penguin.Web.Testing.MockHttpSession.Item(System.String)">
+            <summary>
+            Retrieves a value based on key from the in memory provider
+            </summary>
+            <param name="name">The name of the value to return</param>
+            <returns>The requested value</returns>
+        </member>
+        <member name="M:Penguin.Web.Testing.MockHttpSession.CommitAsync(System.Threading.CancellationToken)">
+            <summary>
+            Unused
+            </summary>
+            <param name="cancellationToken">Unused</param>
+            <returns>Unused</returns>
+        </member>
+        <member name="M:Penguin.Web.Testing.MockHttpSession.LoadAsync(System.Threading.CancellationToken)">
+            <summary>
+            Unused
+            </summary>
+            <param name="cancellationToken">Unused</param>
+            <returns>Unused</returns>
+        </member>
+    </members>
+</doc>

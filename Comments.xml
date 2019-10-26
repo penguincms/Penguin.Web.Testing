@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <doc>
     <assembly>
-        <name>Penguin.Web.Testing.Local</name>
+        <name>Penguin.Web.Testing</name>
     </assembly>
     <members>
         <member name="T:Penguin.Web.Testing.MockHostingEnvironment">

@@ -1,10 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc.ViewEngines;
 using Newtonsoft.Json;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
@@ -22,7 +20,7 @@ namespace Penguin.Web.Testing
 
         public MockView(string path)
         {
-            Path = path;
+            this.Path = path;
         }
 
         #endregion Constructors

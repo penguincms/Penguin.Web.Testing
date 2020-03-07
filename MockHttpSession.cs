@@ -14,26 +14,11 @@ namespace Penguin.Web.Testing
     {
         #region Properties
 
-        string ISession.Id
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
+        string ISession.Id => throw new NotImplementedException();
 
-        bool ISession.IsAvailable
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
+        bool ISession.IsAvailable => throw new NotImplementedException();
 
-        IEnumerable<string> ISession.Keys
-        {
-            get { return sessionStorage.Keys; }
-        }
+        IEnumerable<string> ISession.Keys => this.sessionStorage.Keys;
 
         #endregion Properties
 
@@ -46,13 +31,18 @@ namespace Penguin.Web.Testing
         /// <returns>The requested value</returns>
         public object this[string name]
         {
-            get { return sessionStorage[name]; }
-            set { sessionStorage[name] = value; }
+            get => this.sessionStorage[name];
+            set => this.sessionStorage[name] = value;
         }
 
         #endregion Indexers
 
         #region Methods
+
+        void ISession.Clear()
+        {
+            this.sessionStorage.Clear();
+        }
 
         /// <summary>
         /// Unused
@@ -74,32 +64,27 @@ namespace Penguin.Web.Testing
             throw new NotImplementedException();
         }
 
-        void ISession.Clear()
-        {
-            sessionStorage.Clear();
-        }
-
         void ISession.Remove(string key)
         {
-            sessionStorage.Remove(key);
+            this.sessionStorage.Remove(key);
         }
 
         void ISession.Set(string key, byte[] value)
         {
-            sessionStorage[key] = value;
+            this.sessionStorage[key] = value;
         }
 
         bool ISession.TryGetValue(string key, out byte[] value)
         {
-            if (sessionStorage.ContainsKey(key) && sessionStorage[key] != null)
+            if (this.sessionStorage.ContainsKey(key) && this.sessionStorage[key] != null)
             {
-                if (sessionStorage[key] is byte[])
+                if (this.sessionStorage[key] is byte[])
                 {
-                    value = sessionStorage[key] as byte[];
+                    value = this.sessionStorage[key] as byte[];
                 }
                 else
                 {
-                    value = Encoding.ASCII.GetBytes(sessionStorage[key].ToString());
+                    value = Encoding.ASCII.GetBytes(this.sessionStorage[key].ToString());
                 }
                 return true;
             }
@@ -114,7 +99,7 @@ namespace Penguin.Web.Testing
 
         #region Fields
 
-        private Dictionary<string, object> sessionStorage = new Dictionary<string, object>();
+        private readonly Dictionary<string, object> sessionStorage = new Dictionary<string, object>();
 
         #endregion Fields
     }

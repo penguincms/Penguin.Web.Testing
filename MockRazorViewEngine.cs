@@ -9,8 +9,6 @@ namespace Penguin.Web.Testing
 {
     public class MockRazorViewEngine : IRazorViewEngine
     {
-
-
         #region Methods
 
         public RazorPageResult FindPage(ActionContext context, string pageName)

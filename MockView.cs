@@ -29,6 +29,11 @@ namespace Penguin.Web.Testing
 
         public Task RenderAsync(ViewContext context)
         {
+            if (context is null)
+            {
+                throw new System.ArgumentNullException(nameof(context));
+            }
+
             List<string> fileLines = System.IO.File.ReadAllLines(context.View.Path).ToList();
             List<string> File = new List<string>();
 

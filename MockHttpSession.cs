@@ -39,25 +39,40 @@ namespace Penguin.Web.Testing
 
         #region Methods
 
-        void ISession.Clear() => this.sessionStorage.Clear();
+        void ISession.Clear()
+        {
+            this.sessionStorage.Clear();
+        }
 
         /// <summary>
         /// Unused
         /// </summary>
         /// <param name="cancellationToken">Unused</param>
         /// <returns>Unused</returns>
-        public Task CommitAsync(CancellationToken cancellationToken = default) => throw new NotImplementedException();
+        public Task CommitAsync(CancellationToken cancellationToken = default)
+        {
+            throw new NotImplementedException();
+        }
 
         /// <summary>
         /// Unused
         /// </summary>
         /// <param name="cancellationToken">Unused</param>
         /// <returns>Unused</returns>
-        public Task LoadAsync(CancellationToken cancellationToken = default) => throw new NotImplementedException();
+        public Task LoadAsync(CancellationToken cancellationToken = default)
+        {
+            throw new NotImplementedException();
+        }
 
-        void ISession.Remove(string key) => this.sessionStorage.Remove(key);
+        void ISession.Remove(string key)
+        {
+            _ = this.sessionStorage.Remove(key);
+        }
 
-        void ISession.Set(string key, byte[] value) => this.sessionStorage[key] = value;
+        void ISession.Set(string key, byte[] value)
+        {
+            this.sessionStorage[key] = value;
+        }
 
         bool ISession.TryGetValue(string key, out byte[] value)
         {

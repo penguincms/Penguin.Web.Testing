@@ -23,7 +23,10 @@ namespace Penguin.Web.Testing
 
         #region Methods
 
-        public IDictionary<string, object> LoadTempData(HttpContext context) => this.TempData;
+        public IDictionary<string, object> LoadTempData(HttpContext context)
+        {
+            return this.TempData;
+        }
 
         public void SaveTempData(HttpContext context, IDictionary<string, object> values)
         {

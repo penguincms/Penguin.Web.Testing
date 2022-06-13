@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
-    <PackageProjectUrl>https://github.com/PenguinCms/Penguin.Web.Testing</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/PenguinCMS/Penguin.Web.Testing</PackageProjectUrl>
     <Description>Contains a few mock classes for use with unit testing methods that are intended to function only in the context of a web request</Description>
     <Version>5.0.5</Version>
     <AssemblyName>Penguin.Web.Testing</AssemblyName>

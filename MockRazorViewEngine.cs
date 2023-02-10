@@ -41,14 +41,7 @@ namespace Penguin.Web.Testing
 
             string ViewName = File.Exists(check) ? Path.GetFileNameWithoutExtension(check) : null;
 
-            if (File.Exists(check))
-            {
-                return ViewEngineResult.Found(ViewName, view);
-            }
-            else
-            {
-                return ViewEngineResult.NotFound("", new List<string>());
-            }
+            return File.Exists(check) ? ViewEngineResult.Found(ViewName, view) : ViewEngineResult.NotFound("", new List<string>());
         }
 
         #endregion Methods

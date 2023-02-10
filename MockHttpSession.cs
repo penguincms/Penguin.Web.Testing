@@ -18,7 +18,7 @@ namespace Penguin.Web.Testing
 
         bool ISession.IsAvailable => throw new NotImplementedException();
 
-        IEnumerable<string> ISession.Keys => this.sessionStorage.Keys;
+        IEnumerable<string> ISession.Keys => sessionStorage.Keys;
 
         #endregion Properties
 
@@ -31,17 +31,18 @@ namespace Penguin.Web.Testing
         /// <returns>The requested value</returns>
         public object this[string name]
         {
-            get => this.sessionStorage[name];
-            set => this.sessionStorage[name] = value;
+            get => sessionStorage[name];
+            set => sessionStorage[name] = value;
         }
+        /// <inheritdoc/>
 
         #endregion Indexers
 
         #region Methods
 
-        void ISession.Clear()
+        public void Clear()
         {
-            this.sessionStorage.Clear();
+            sessionStorage.Clear();
         }
 
         /// <summary>
@@ -63,29 +64,26 @@ namespace Penguin.Web.Testing
         {
             throw new NotImplementedException();
         }
+        /// <inheritdoc/>
 
-        void ISession.Remove(string key)
+        public void Remove(string key)
         {
-            _ = this.sessionStorage.Remove(key);
+            _ = sessionStorage.Remove(key);
         }
+        /// <inheritdoc/>
 
-        void ISession.Set(string key, byte[] value)
+        public void Set(string key, byte[] value)
         {
-            this.sessionStorage[key] = value;
+            sessionStorage[key] = value;
         }
+        /// <inheritdoc/>
 
-        bool ISession.TryGetValue(string key, out byte[] value)
+        public bool TryGetValue(string key, out byte[] value)
         {
-            if (this.sessionStorage.ContainsKey(key) && this.sessionStorage[key] != null)
+            if (sessionStorage.TryGetValue(key, out object v) && v != null)
             {
-                if (this.sessionStorage[key] is byte[])
-                {
-                    value = this.sessionStorage[key] as byte[];
-                }
-                else
-                {
-                    value = Encoding.ASCII.GetBytes(this.sessionStorage[key].ToString());
-                }
+                _ = sessionStorage[key] is byte[]? sessionStorage[key] as byte[] : Encoding.ASCII.GetBytes(sessionStorage[key].ToString());
+                value = (byte[])v;
                 return true;
             }
             else
@@ -99,7 +97,7 @@ namespace Penguin.Web.Testing
 
         #region Fields
 
-        private readonly Dictionary<string, object> sessionStorage = new Dictionary<string, object>();
+        private readonly Dictionary<string, object> sessionStorage = new();
 
         #endregion Fields
     }

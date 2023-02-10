@@ -51,6 +51,9 @@
             <param name="name">The name of the value to return</param>
             <returns>The requested value</returns>
         </member>
+        <member name="M:Penguin.Web.Testing.MockHttpSession.Clear">
+            <inheritdoc/>
+        </member>
         <member name="M:Penguin.Web.Testing.MockHttpSession.CommitAsync(System.Threading.CancellationToken)">
             <summary>
             Unused
@@ -64,6 +67,15 @@
             </summary>
             <param name="cancellationToken">Unused</param>
             <returns>Unused</returns>
+        </member>
+        <member name="M:Penguin.Web.Testing.MockHttpSession.Remove(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Penguin.Web.Testing.MockHttpSession.Set(System.String,System.Byte[])">
+            <inheritdoc/>
+        </member>
+        <member name="M:Penguin.Web.Testing.MockHttpSession.TryGetValue(System.String,System.Byte[]@)">
+            <inheritdoc/>
         </member>
     </members>
 </doc>

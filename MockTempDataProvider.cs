@@ -16,7 +16,7 @@ namespace Penguin.Web.Testing
 
         public MockTempDataProvider()
         {
-            this.TempData = new Dictionary<string, object>();
+            TempData = new Dictionary<string, object>();
         }
 
         #endregion Constructors
@@ -25,7 +25,7 @@ namespace Penguin.Web.Testing
 
         public IDictionary<string, object> LoadTempData(HttpContext context)
         {
-            return this.TempData;
+            return TempData;
         }
 
         public void SaveTempData(HttpContext context, IDictionary<string, object> values)

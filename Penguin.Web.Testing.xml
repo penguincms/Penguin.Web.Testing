@@ -52,7 +52,7 @@
             <returns>The requested value</returns>
         </member>
         <member name="M:Penguin.Web.Testing.MockHttpSession.Clear">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="M:Penguin.Web.Testing.MockHttpSession.CommitAsync(System.Threading.CancellationToken)">
             <summary>
@@ -69,13 +69,13 @@
             <returns>Unused</returns>
         </member>
         <member name="M:Penguin.Web.Testing.MockHttpSession.Remove(System.String)">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="M:Penguin.Web.Testing.MockHttpSession.Set(System.String,System.Byte[])">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="M:Penguin.Web.Testing.MockHttpSession.TryGetValue(System.String,System.Byte[]@)">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
     </members>
 </doc>

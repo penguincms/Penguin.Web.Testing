@@ -20,14 +20,14 @@ namespace Penguin.Web.Testing
 
         public MockView(string path)
         {
-            this.Path = path;
+            Path = path;
         }
 
         #endregion Constructors
 
         #region Methods
 
-        public Task RenderAsync(ViewContext context)
+        public async Task RenderAsync(ViewContext context)
         {
             if (context is null)
             {
@@ -35,7 +35,7 @@ namespace Penguin.Web.Testing
             }
 
             List<string> fileLines = System.IO.File.ReadAllLines(context.View.Path).ToList();
-            List<string> File = new List<string>();
+            List<string> File = new();
 
             foreach (string Line in fileLines)
             {
@@ -49,7 +49,7 @@ namespace Penguin.Web.Testing
             string Model = string.Empty;
 
             //not a perfect check but should drastically reduce the amount of data being stored since most email templates should be empty
-            if (File.Any(s => s.Contains("@")))
+            if (File.Any(s => s.Contains('@')))
             {
                 Model = JsonConvert.SerializeObject(context.ViewData.Model, new JsonSerializerSettings()
                 {
@@ -63,9 +63,7 @@ namespace Penguin.Web.Testing
 
             string viewBody = Model + System.Environment.NewLine + string.Join(System.Environment.NewLine, File);
 
-            context.Writer.Write(viewBody);
-
-            return Task.CompletedTask;
+            _ = context.Writer.WriteAsync(viewBody);
         }
 
         #endregion Methods

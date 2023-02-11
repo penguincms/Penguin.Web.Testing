@@ -34,6 +34,7 @@ namespace Penguin.Web.Testing
             get => sessionStorage[name];
             set => sessionStorage[name] = value;
         }
+
         /// <inheritdoc/>
 
         #endregion Indexers
@@ -64,18 +65,21 @@ namespace Penguin.Web.Testing
         {
             throw new NotImplementedException();
         }
+
         /// <inheritdoc/>
 
         public void Remove(string key)
         {
             _ = sessionStorage.Remove(key);
         }
+
         /// <inheritdoc/>
 
         public void Set(string key, byte[] value)
         {
             sessionStorage[key] = value;
         }
+
         /// <inheritdoc/>
 
         public bool TryGetValue(string key, out byte[] value)
